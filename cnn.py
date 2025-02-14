@@ -3,7 +3,9 @@ from tensorflow.keras.layers import LeakyReLU
 import tensorflow as tf
 import numpy as np
 import anvil.server
-from keras.saving import register_keras_serializable
+# from keras.saving import register_keras_serializable
+from keras.utils import register_keras_serializable  # ✅ Correct import
+
 
 # ✅ Register custom Transformer layers
 @register_keras_serializable(package="CustomLayers")
