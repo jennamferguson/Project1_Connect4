@@ -4,7 +4,9 @@ import tensorflow as tf
 import numpy as np
 import anvil.server
 # from keras.saving import register_keras_serializable
-from keras.utils import register_keras_serializable  # ✅ Correct import
+# from keras.utils import register_keras_serializable  # ✅ Correct import
+from tensorflow.keras.utils import register_keras_serializable  # ✅ Correct import
+
 
 
 # ✅ Register custom Transformer layers
