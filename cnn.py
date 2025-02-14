@@ -8,36 +8,36 @@ from tensorflow.keras.utils import register_keras_serializable
 
 
 # ✅ Register custom Transformer layers
-@register_keras_serializable(package="CustomLayers")
-class PositionalIndex(tf.keras.layers.Layer):
-    def call(self, x):
-        bs = tf.shape(x)[0]  # Extract batch size
-        number_of_vectors = tf.shape(x)[1]  # Count the number of vectors (should be m*n)
-        indices = tf.range(number_of_vectors)  # Index for each vector
-        indices = tf.expand_dims(indices, 0)  # Reshape appropriately
-        return tf.tile(indices, [bs, 1])  # Repeat for each batch
+# @register_keras_serializable(package="CustomLayers")
+# class PositionalIndex(tf.keras.layers.Layer):
+#     def call(self, x):
+#         bs = tf.shape(x)[0]  # Extract batch size
+#         number_of_vectors = tf.shape(x)[1]  # Count the number of vectors (should be m*n)
+#         indices = tf.range(number_of_vectors)  # Index for each vector
+#         indices = tf.expand_dims(indices, 0)  # Reshape appropriately
+#         return tf.tile(indices, [bs, 1])  # Repeat for each batch
 
-@register_keras_serializable(package="CustomLayers")
-class ClassTokenIndex(tf.keras.layers.Layer):
-    def call(self, x):
-        bs = tf.shape(x)[0]  # Extract batch size
-        number_of_vectors = 1  # We want just 1 vector for the class token
-        indices = tf.range(number_of_vectors)  # Index for the vector
-        indices = tf.expand_dims(indices, 0)  # Reshape appropriately
-        return tf.tile(indices, [bs, 1])  # Repeat for each batch
+# @register_keras_serializable(package="CustomLayers")
+# class ClassTokenIndex(tf.keras.layers.Layer):
+#     def call(self, x):
+#         bs = tf.shape(x)[0]  # Extract batch size
+#         number_of_vectors = 1  # We want just 1 vector for the class token
+#         indices = tf.range(number_of_vectors)  # Index for the vector
+#         indices = tf.expand_dims(indices, 0)  # Reshape appropriately
+#         return tf.tile(indices, [bs, 1])  # Repeat for each batch
 
-@register_keras_serializable(package="CustomLayers")
-class ClassTokenSelector(tf.keras.layers.Layer):
-    def __init__(self, **kwargs):
-        super(ClassTokenSelector, self).__init__(**kwargs)
+# @register_keras_serializable(package="CustomLayers")
+# class ClassTokenSelector(tf.keras.layers.Layer):
+#     def __init__(self, **kwargs):
+#         super(ClassTokenSelector, self).__init__(**kwargs)
 
-    def call(self, inputs):
-        """ Extracts the first token (class token) from the sequence. """
-        return inputs[:, 0, :]
+#     def call(self, inputs):
+#         """ Extracts the first token (class token) from the sequence. """
+#         return inputs[:, 0, :]
 
-    def get_config(self):
-        config = super(ClassTokenSelector, self).get_config()
-        return config
+#     def get_config(self):
+#         config = super(ClassTokenSelector, self).get_config()
+#         return config
 
 # # ✅ Paths to the models
 # CNN_MODEL_PATH = "/home/bitnami/connect4/cnn_model3.h5"  # Update if necessary
@@ -46,22 +46,24 @@ class ClassTokenSelector(tf.keras.layers.Layer):
 CNN_MODEL_PATH = "/connect4/cnn_model3.h5"
 TRANSFORMER_MODEL_PATH = "/connect4/transformer_model_final.keras"
 
-# ✅ Load models with custom objects
-custom_objects_cnn = {
-    'LeakyReLU': LeakyReLU
-}
+# # ✅ Load models with custom objects
+# custom_objects_cnn = {
+#     'LeakyReLU': LeakyReLU
+# }
 
-customer_objects_transformer = {
-    'PositionalIndex': PositionalIndex,
-    'ClassTokenIndex': ClassTokenIndex,
-    'ClassTokenSelector': ClassTokenSelector
-}
+# customer_objects_transformer = {
+#     'PositionalIndex': PositionalIndex,
+#     'ClassTokenIndex': ClassTokenIndex,
+#     'ClassTokenSelector': ClassTokenSelector
+# }
 
 
 # cnn_model = load_model(CNN_MODEL_PATH, custom_objects=custom_objects_cnn)
 # transformer_model = load_model(TRANSFORMER_MODEL_PATH, custom_objects=customer_objects_transformer)
-cnn_model = load_model(CNN_MODEL_PATH, custom_objects=custom_objects_cnn, compile=False)
-transformer_model = load_model(TRANSFORMER_MODEL_PATH, custom_objects=customer_objects_transformer, compile=False)
+# cnn_model = load_model(CNN_MODEL_PATH, custom_objects=custom_objects_cnn, compile=False)
+# transformer_model = load_model(TRANSFORMER_MODEL_PATH, custom_objects=customer_objects_transformer, compile=False)
+cnn_model = load_model(CNN_MODEL_PATH)
+transformer_model = load_model(TRANSFORMER_MODEL_PATH)
 
 
 
