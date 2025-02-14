@@ -37,9 +37,12 @@ class ClassTokenSelector(tf.keras.layers.Layer):
         config = super(ClassTokenSelector, self).get_config()
         return config
 
-# ✅ Paths to the models
-CNN_MODEL_PATH = "/home/bitnami/connect4/cnn_model3.h5"  # Update if necessary
-TRANSFORMER_MODEL_PATH = "/home/bitnami/connect4/transformer_model_final.keras"  # Update if necessary
+# # ✅ Paths to the models
+# CNN_MODEL_PATH = "/home/bitnami/connect4/cnn_model3.h5"  # Update if necessary
+# TRANSFORMER_MODEL_PATH = "/home/bitnami/connect4/transformer_model_final.keras"  # Update if necessary
+# ✅ NEW (Correct paths for Docker container)
+CNN_MODEL_PATH = "/connect4/cnn_model3.h5"
+TRANSFORMER_MODEL_PATH = "/connect4/transformer_model_final.keras"
 
 # ✅ Load models with custom objects
 custom_objects_cnn = {
