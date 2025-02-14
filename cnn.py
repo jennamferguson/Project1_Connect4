@@ -3,9 +3,7 @@ from tensorflow.keras.layers import LeakyReLU
 import tensorflow as tf
 import numpy as np
 import anvil.server
-# from keras.saving import register_keras_serializable
-# from keras.utils import register_keras_serializable  # ✅ Correct import
-from tensorflow.keras.utils import register_keras_serializable  # ✅ Correct import
+from tensorflow.keras.utils import register_keras_serializable
 
 
 
@@ -60,8 +58,11 @@ customer_objects_transformer = {
 }
 
 
-cnn_model = load_model(CNN_MODEL_PATH, custom_objects=custom_objects_cnn)
-transformer_model = load_model(TRANSFORMER_MODEL_PATH, custom_objects=customer_objects_transformer)
+# cnn_model = load_model(CNN_MODEL_PATH, custom_objects=custom_objects_cnn)
+# transformer_model = load_model(TRANSFORMER_MODEL_PATH, custom_objects=customer_objects_transformer)
+cnn_model = load_model(CNN_MODEL_PATH, custom_objects=custom_objects_cnn, compile=False)
+transformer_model = load_model(TRANSFORMER_MODEL_PATH, custom_objects=customer_objects_transformer, compile=False)
+
 
 
 def swap_board(board):
