@@ -4,7 +4,7 @@ import numpy as np
 import anvil.server
 
 # Path to your model
-MODEL_PATH = "/home/bitnami/cnn_model3.h5"  # Update if necessary
+MODEL_PATH = "/home/bitnami/connect4/cnn_model3.h5     # Update if necessary
 
 # Custom object dictionary for loading the model
 custom_objects = {'LeakyReLU': LeakyReLU}
