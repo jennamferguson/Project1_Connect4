@@ -26,5 +26,7 @@ Performance metrics include accuracy on validation boards and number of moves to
 ## Play Game
 The resulting models as well as a notebook to play a game of Connect4 against these models is included in the Play Game folder. 
 
+cnn_model.h5 and cnn_model2.h5 are earlier models. While these models are competitive opponents, we found they lacked the ability to block early wins. cnn_model3.h5 is our strongest player throughout the entirety of the game - we recommend playing this if you're up for the challenge! This model had a validation accuracy of 91% 
+
 ## Backend Code
 This folder includes the code the backend code to host these models on Anvil
