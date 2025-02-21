@@ -2,7 +2,7 @@
 
 This project involves training a neural network to play Connect 4 using Monte Carlo Tree Search (MCTS) to generate a dataset of board positions and optimal moves. Two deep learning models—a Convolutional Neural Network (CNN) and a Transformer—are trained on this dataset to predict the best move for a given board state. The project also includes a web interface where users can play against these models.
 
-Play against our models here: https://flat-pale-entry.anvil.app  - Best of luck!
+Play against our models here: https://flat-pale-entry.anvil.app (Username: dan , Password: Optimization1234) - Best of luck!
 
 ## Dataset Generation
 Uses Monte Carlo Tree Search (MCTS) to play games against itself and recommend the best moves.
@@ -26,7 +26,7 @@ Performance metrics include accuracy on validation boards and number of moves to
 ## Play Game
 The resulting models as well as a notebook to play a game of Connect4 against these models is included in the Play Game folder. 
 
-cnn_model.h5 and cnn_model2.h5 are earlier models. While these models are competitive opponents, we found they lacked the ability to block early wins. cnn_model3.h5 is our strongest player throughout the entirety of the game - we recommend playing this if you're up for the challenge! This model had a validation accuracy of 91% 
+cnn_model.h5 and cnn_model2.h5 are earlier models. While these models are competitive opponents, we found they lacked the ability to block early wins. cnn_model3.h5 is our strongest player throughout the game - we recommend playing this if you're up for the challenge! This model had a validation accuracy of 91% 
 
 ## Backend Code
 This folder includes the code the backend code to host these models on Anvil
