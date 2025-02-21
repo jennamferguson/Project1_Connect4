@@ -7,7 +7,7 @@ from tensorflow.keras.utils import register_keras_serializable
 
 
 
-anvil.server.connect("")
+anvil.server.connect("") #put in uplink key here!
 
 ########YOUR SERVER KEY WILL BE DIFFERENT. GENERATE A NEW ONE VIA ANVIL EACH TIME YOU MAKE A COPY #############################
 
