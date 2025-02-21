@@ -7,7 +7,7 @@ from tensorflow.keras.utils import register_keras_serializable
 
 
 
-anvil.server.connect("server_AHVWPGRJTOPOH47P4O2CYXK4-DZYVXRUQQFGIEFMX")
+anvil.server.connect("")
 
 ########YOUR SERVER KEY WILL BE DIFFERENT. GENERATE A NEW ONE VIA ANVIL EACH TIME YOU MAKE A COPY #############################
 
